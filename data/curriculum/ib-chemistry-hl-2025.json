@@ -1,0 +1,255 @@
+{
+  "schema_version": "1.0.0",
+  "curriculum": {
+    "id": "ib-chemistry-hl-2025",
+    "name": "IB Chemistry HL",
+    "first_assessment": "May 2025",
+    "total_hours": 180,
+    "level": "Higher Level",
+    "description": "The IB Chemistry HL course is organized around two overarching concepts: Structure (the nature of matter) and Reactivity (how and why chemical reactions occur)."
+  },
+  "_SCHEMA_NOTES": {
+    "purpose": "Curriculum Engine - knowledge graph powering diagnostic and tutoring",
+    "how_it_works": "Each concept node contains: what to teach, misconceptions, prerequisites, connections, assessment types",
+    "conventions": {
+      "ids": "S1.1.1, S1.2.3, R2.1.4 (matches IB numbering)",
+      "difficulty": "1-5 scale",
+      "is_hl_only": "true if AHL only",
+      "bloom_level": "Primary cognitive level",
+      "estimated_minutes": "Teaching time",
+      "prerequisites": "Must understand first",
+      "connections": "Related topics"
+    }
+  },
+  "themes": [
+    {
+      "id": "S",
+      "name": "Structure",
+      "description": "The nature of matter from simple to complex forms",
+      "topics": [
+        {
+          "id": "S1",
+          "name": "Models of the particulate nature of matter",
+          "subtopics": [
+            {
+              "id": "S1.1",
+              "name": "Introduction to the particulate nature of matter",
+              "estimated_hours": 4,
+              "concepts_count": 3,
+              "_status": "COMPLETE — S1.1.1, S1.1.2, S1.1.3 fully detailed with misconceptions"
+            },
+            {
+              "id": "S1.2",
+              "name": "The nuclear atom",
+              "estimated_hours": 5,
+              "concepts_count": 3,
+              "_status": "SKELETON"
+            },
+            {
+              "id": "S1.3",
+              "name": "Electron configurations",
+              "estimated_hours": 8,
+              "concepts_count": 7,
+              "_status": "SKELETON"
+            },
+            {
+              "id": "S1.4",
+              "name": "Counting particles by mass: The mole",
+              "estimated_hours": 8,
+              "concepts_count": 6,
+              "_status": "SKELETON"
+            },
+            {
+              "id": "S1.5",
+              "name": "Ideal gases",
+              "estimated_hours": 5,
+              "concepts_count": 4,
+              "_status": "SKELETON"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "name": "Models of bonding and structure",
+          "subtopics": [
+            {
+              "id": "S2.1",
+              "name": "The ionic model",
+              "estimated_hours": 4,
+              "concepts_count": 3,
+              "_status": "SKELETON"
+            },
+            {
+              "id": "S2.2",
+              "name": "The covalent model",
+              "estimated_hours": 16,
+              "concepts_count": 16,
+              "_status": "SKELETON — 10 SL + 6 HL"
+            },
+            {
+              "id": "S2.3",
+              "name": "The metallic model",
+              "estimated_hours": 3,
+              "concepts_count": 3,
+              "_status": "SKELETON"
+            },
+            {
+              "id": "S2.4",
+              "name": "From models to materials",
+              "estimated_hours": 6,
+              "concepts_count": 6,
+              "_status": "SKELETON"
+            }
+          ]
+        },
+        {
+          "id": "S3",
+          "name": "Classification of matter",
+          "subtopics": [
+            {
+              "id": "S3.1",
+              "name": "The periodic table",
+              "estimated_hours": 10,
+              "concepts_count": 10,
+              "_status": "SKELETON — 5 SL + 5 HL"
+            },
+            {
+              "id": "S3.2",
+              "name": "Functional groups & organic compounds",
+              "estimated_hours": 12,
+              "concepts_count": 12,
+              "_status": "SKELETON — 7 SL + 5 HL"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R",
+      "name": "Reactivity",
+      "description": "How and why chemical reactions occur",
+      "topics": [
+        {
+          "id": "R1",
+          "name": "What drives chemical reactions?",
+          "subtopics": [
+            {
+              "id": "R1.1",
+              "name": "Measuring enthalpy changes",
+              "estimated_hours": 5,
+              "concepts_count": 4,
+              "_status": "SKELETON"
+            },
+            {
+              "id": "R1.2",
+              "name": "Energy cycles in reactions",
+              "estimated_hours": 6,
+              "concepts_count": 5,
+              "_status": "SKELETON"
+            },
+            {
+              "id": "R1.3",
+              "name": "Energy from fuels",
+              "estimated_hours": 5,
+              "concepts_count": 5,
+              "_status": "SKELETON"
+            },
+            {
+              "id": "R1.4",
+              "name": "Entropy and spontaneity",
+              "estimated_hours": 5,
+              "concepts_count": 4,
+              "_status": "SKELETON — HL only"
+            }
+          ]
+        },
+        {
+          "id": "R2",
+          "name": "How much, how fast and how far?",
+          "subtopics": [
+            {
+              "id": "R2.1",
+              "name": "Amount of chemical change",
+              "estimated_hours": 6,
+              "concepts_count": 5,
+              "_status": "SKELETON"
+            },
+            {
+              "id": "R2.2",
+              "name": "Rate of chemical change",
+              "estimated_hours": 10,
+              "concepts_count": 13,
+              "_status": "SKELETON — 5 SL + 8 HL"
+            },
+            {
+              "id": "R2.3",
+              "name": "Extent of chemical change",
+              "estimated_hours": 8,
+              "concepts_count": 7,
+              "_status": "SKELETON — 4 SL + 3 HL"
+            }
+          ]
+        },
+        {
+          "id": "R3",
+          "name": "Mechanisms of chemical change",
+          "subtopics": [
+            {
+              "id": "R3.1",
+              "name": "Proton transfer reactions",
+              "estimated_hours": 12,
+              "concepts_count": 17,
+              "_status": "SKELETON — 8 SL + 9 HL"
+            },
+            {
+              "id": "R3.2",
+              "name": "Electron transfer reactions",
+              "estimated_hours": 12,
+              "concepts_count": 16,
+              "_status": "SKELETON — 8 SL + 8 HL"
+            },
+            {
+              "id": "R3.3",
+              "name": "Electron sharing reactions",
+              "estimated_hours": 3,
+              "concepts_count": 3,
+              "_status": "SKELETON"
+            },
+            {
+              "id": "R3.4",
+              "name": "Electron-pair sharing reactions",
+              "estimated_hours": 10,
+              "concepts_count": 13,
+              "_status": "SKELETON — 5 SL + 8 HL"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "syllabus_map": {
+    "_description": "Complete concept count by topic",
+    "total_concepts": 148,
+    "sl_concepts": 88,
+    "hl_only_concepts": 60,
+    "breakdown": {
+      "S1": "23 concepts (3 complete in S1.1, 20 skeletons)",
+      "S2": "28 concepts (all skeletons)",
+      "S3": "22 concepts (all skeletons)",
+      "R1": "18 concepts (all skeletons)",
+      "R2": "25 concepts (all skeletons)",
+      "R3": "49 concepts (all skeletons)"
+    }
+  },
+  "_NEXT_STEPS": [
+    "S1.1 is the TEMPLATE — follow this pattern for S1.2, S1.3, etc.",
+    "Next: Fill S1.2 (The nuclear atom) with 3 concepts",
+    "Then: Build diagnostic questions for S1.1 only (MVP test)",
+    "Then: Build diagnostic UI and tutor engine"
+  ],
+  "_S1_1_CONCEPTS": {
+    "S1.1.1": "Elements as primary constituents (COMPLETE)",
+    "S1.1.2": "Kinetic molecular theory (COMPLETE)",
+    "S1.1.3": "Temperature and kinetic energy (COMPLETE)"
+  }
+}
