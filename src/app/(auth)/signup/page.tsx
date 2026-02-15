@@ -26,8 +26,14 @@ export default function SignUpPage() {
         displayName
       )
 
-      if (signUpError) throw signUpError
-      if (!data.user) throw new Error('Failed to create user')
+      if (signUpError) {
+        console.error('Sign up error:', signUpError)
+        throw new Error(signUpError.message || 'Failed to create account')
+      }
+      
+      if (!data?.user) {
+        throw new Error('Failed to create user account')
+      }
 
       // Create student profile
       const { error: profileError } = await db.createStudentProfile(
@@ -35,12 +41,17 @@ export default function SignUpPage() {
         displayName
       )
 
-      if (profileError) throw profileError
+      if (profileError) {
+        console.error('Profile creation error:', profileError)
+        throw new Error(profileError.message || 'Failed to create profile')
+      }
 
       // Redirect to dashboard
       router.push('/dashboard')
     } catch (err: any) {
-      setError(err.message || 'Failed to sign up')
+      const errorMsg = err.message || 'Failed to sign up. Please try again.'
+      console.error('Sign up exception:', errorMsg)
+      setError(errorMsg)
     } finally {
       setLoading(false)
     }
@@ -49,11 +60,21 @@ export default function SignUpPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800 flex items-center justify-center p-4">
       <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8 w-full max-w-md">
-        <h1 className="text-3xl font-bold mb-2 text-slate-900 dark:text-white">
+        {/* EducAI Logo & Branding */}
+        <div className="mb-8 text-center">
+          <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-1">
+            EducAI
+          </div>
+          <p className="text-xs text-slate-500 dark:text-slate-400">
+            AI-Powered Personalized Learning
+          </p>
+        </div>
+
+        <h1 className="text-2xl font-bold mb-2 text-slate-900 dark:text-white">
           Join EducAI
         </h1>
-        <p className="text-slate-600 dark:text-slate-400 mb-6">
-          Start your personalized learning journey
+        <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">
+          Create your account and start learning
         </p>
 
         <form onSubmit={handleSignUp} className="space-y-4">

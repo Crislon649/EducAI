@@ -20,12 +20,20 @@ export default function LoginPage() {
     try {
       const { data, error: loginError } = await auth.signIn(email, password)
 
-      if (loginError) throw loginError
-      if (!data.user) throw new Error('Login failed')
+      if (loginError) {
+        console.error('Login error:', loginError)
+        throw new Error(loginError.message || 'Invalid email or password')
+      }
+      
+      if (!data?.user) {
+        throw new Error('Login failed - no user returned')
+      }
 
       router.push('/dashboard')
     } catch (err: any) {
-      setError(err.message || 'Failed to log in')
+      const errorMsg = err.message || 'Failed to log in. Please check your credentials.'
+      console.error('Login exception:', errorMsg)
+      setError(errorMsg)
     } finally {
       setLoading(false)
     }
@@ -34,11 +42,21 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800 flex items-center justify-center p-4">
       <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8 w-full max-w-md">
-        <h1 className="text-3xl font-bold mb-2 text-slate-900 dark:text-white">
+        {/* EducAI Logo & Branding */}
+        <div className="mb-8 text-center">
+          <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-1">
+            EducAI
+          </div>
+          <p className="text-xs text-slate-500 dark:text-slate-400">
+            AI-Powered Personalized Learning
+          </p>
+        </div>
+
+        <h1 className="text-2xl font-bold mb-2 text-slate-900 dark:text-white">
           Welcome Back
         </h1>
-        <p className="text-slate-600 dark:text-slate-400 mb-6">
-          Log in to EducAI to continue learning
+        <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">
+          Log in to continue your learning journey
         </p>
 
         <form onSubmit={handleLogin} className="space-y-4">
