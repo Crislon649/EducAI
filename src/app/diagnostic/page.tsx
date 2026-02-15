@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
 import { auth, db } from '@/lib/supabase-client'
 import diagnosticData from '@/data/diagnostic_S1.1.json'
 
@@ -165,25 +164,18 @@ export default function DiagnosticPage() {
             </span>
           </div>
           <div className="w-full h-2 bg-slate-300 dark:bg-slate-700 rounded-full overflow-hidden">
-            <motion.div
-              className="h-full bg-indigo-600"
-              initial={{ width: 0 }}
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.5 }}
+            <div
+              className="h-full bg-indigo-600 transition-all duration-500"
+              style={{ width: `${progress}%` }}
             />
           </div>
         </div>
 
         {/* Question Card */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentQuestionIndex}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8 mb-8"
-          >
+        <div
+          key={currentQuestionIndex}
+          className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8 mb-8 transition-opacity duration-300"
+        >
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">
               {currentQuestion.question_text}
             </h2>
@@ -247,13 +239,9 @@ export default function DiagnosticPage() {
             </div>
 
             {/* Feedback */}
-            <AnimatePresence>
-              {showFeedback && selectedOptionObj && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className={`p-4 rounded-lg mb-8 ${
+            {showFeedback && selectedOptionObj && (
+              <div
+                className={`p-4 rounded-lg mb-8 transition-all duration-300 ${
                     selectedOptionObj.is_correct
                       ? 'bg-green-100 dark:bg-green-900/30 border border-green-500'
                       : 'bg-orange-100 dark:bg-orange-900/30 border border-orange-500'
@@ -277,25 +265,21 @@ export default function DiagnosticPage() {
                   >
                     {selectedOptionObj.feedback}
                   </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+              </div>
+            )}
 
             {/* Next Button */}
             {showFeedback && (
-              <motion.button
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+              <button
                 onClick={handleNext}
                 className="w-full px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-semibold transition-colors"
               >
                 {currentQuestionIndex === questions.length - 1
                   ? 'See Results'
                   : 'Next Question'}
-              </motion.button>
+              </button>
             )}
-          </motion.div>
-        </AnimatePresence>
+        </div>
       </div>
     </div>
   )
