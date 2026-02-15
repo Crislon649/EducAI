@@ -1,0 +1,176 @@
+Cristian,
+
+Aquí está TODO lo que tenemos en EducAI. Cópiale esto a Claude para que nos ayude a resolver problemas y próximos pasos:
+
+---
+
+RESUMEN EJECUTIVO:
+- Proyecto: EducAI (plataforma de tutoría con IA para IB Chemistry)
+- Estado: 85% MVP (S1.1 Diagnostic completo)
+- Live: https://educai.vercel.app
+- GitHub: https://github.com/Crislon649/EducAI
+- Problema actual: Login fallando con error "Login Failed"
+- Próximos pasos: Results page + Tutor AI prompt
+
+TECNOLOGÍA:
+- Frontend: Next.js 15 + TypeScript + Tailwind + shadcn/ui
+- Backend: Supabase (PostgreSQL, Auth, RLS)
+- Deployment: Vercel (auto-deploy en cada git push)
+- AI: Claude (Haiku default, Sonnet cuando sea complejo)
+
+ESTRUCTURA DEL CÓDIGO (328 líneas):
+src/app/
+├── (auth)/
+│   ├── login/page.tsx .................. Login con Supabase (fallando ahora)
+│   └── signup/page.tsx ................. Signup + profile creation
+├── dashboard/page.tsx .................. Hub principal (protegido)
+├── diagnostic/page.tsx ................. 5 preguntas, flujo con feedback
+├── results/page.tsx .................... VACÍO - necesita visual breakdown
+└── page.tsx ............................ Landing (skeleton)
+
+src/lib/
+├── supabase-client.ts .................. Auth + DB helpers
+└── types/supabase.ts ................... TypeScript types
+
+middleware.ts ........................... Protección de rutas (/dashboard, /diagnostic, /results)
+
+data/
+├── curriculum/ib-chemistry-hl-2025.json ... 148 conceptos, S1.1 completo con misconceptions
+└── diagnostics/diagnostic_S1.1_v1.json .... 5 preguntas mappeadas a misconceptions
+
+SUPABASE:
+URL: https://jucx5thvhyi.supabase.co
+Anon Key: sb_publishable_rNpzuF5sTvGIs9xpy4wBgA_eV8e7rLK
+
+Tablas:
+- student_profiles (user_id, email, full_name, created_at)
+- diagnostic_results (student_id FK, subtopic, overall_mastery, concept_mastery JSONB, misconceptions_detected JSONB)
+- student_knowledge_state (student_id FK, concept_mastery JSONB, misconceptions JSONB)
+- tutor_sessions (student_id FK, session_start, session_end, messages JSONB)
+
+RLS: Students see only their own data, authenticated users can insert/update own records
+
+CURRICULUM (S1.1 - 100% completo):
+3 conceptos (Atoms & Elements, States of Matter, Kinetic Theory)
+12 misconceptions totales
+Cada misconception tiene:
+- Descripción del error común
+- Entendimiento correcto
+- Patrones de detección (cómo identificar en preguntas)
+- Estrategia de remedición (cómo tutor debe enseñar)
+- Frecuencia
+
+DIAGNÓSTICO (5 preguntas):
+Q1: O₂ vs compound → detecta S1.1.1-M2 (element ≠ atom)
+Q2: Decomposition → detecta S1.1.1-M1 (compounds ≠ mixtures)
+Q3: Melting → detecta S1.1.2-M3 (temp constante en cambio de fase)
+Q4: Bubbles → detecta S1.1.2-M2 (burbujas iniciales = aire disuelto, no vapor)
+Q5: Kelvin temp → detecta S1.1.3-M1 (debe usar Kelvin para proporcionalidad)
+
+Cada pregunta genera: StudentKnowledgeProfile
+{
+  overall_mastery: 0-100,
+  concept_mastery: { S1.1.1: %, S1.1.2: %, S1.1.3: % },
+  misconceptions_detected: [S1.1.1-M2, S1.1.2-M3, ...]
+}
+
+LO QUE YA FUNCIONA:
+✅ Signup (crea user + profile)
+✅ Login (Supabase auth) - PERO FALLANDO CON ERROR "Login Failed"
+✅ Dashboard protegido
+✅ Diagnostic flow (5 Qs con feedback real-time)
+✅ Guardado de resultados a DB
+✅ Supabase RLS policies
+✅ Middleware de rutas protegidas
+✅ Auto-deploy en Vercel
+
+LO QUE FALTA (BLOQUEADORES):
+1. CRÍTICO: Login fallando
+   - Error: "Login Failed"
+   - Probable causa: credenciales Supabase mal o account no existe
+   - Debug: Ver console del browser (F12)
+
+2. MEDIUM: Results page
+   - Necesita: visual breakdown de concept_mastery (barras/porcentajes)
+   - Mostrar misconceptions_detected con feedback
+   - Mostrar remediation_strategy (del curriculum JSON)
+   - CTA "Start Tutoring Session"
+
+3. MEDIUM: Tutor AI prompt
+   - System prompt que:
+     a) Reciba StudentKnowledgeProfile como contexto
+     b) Cargue curriculum JSON (misconceptions + remediation strategies)
+     c) Genere respuestas Socratic basadas en gaps detectados
+     d) Guarde mensajes en tutor_sessions table
+   - Ejemplo: Si student falló Q1, tutor explica atoms vs elements
+
+4. NICE-TO-HAVE: Landing page redesign
+   - Hero section
+   - Subject grid (Chemistry live, others Coming Soon)
+   - How-it-works (3 pasos)
+
+PRÓXIMOS PASOS ORDENADOS POR PRIORIDAD:
+
+1. URGENTE: Arreglar login
+   - Probamos signup nuevo → intenta login
+   - Si falla: ver browser console para error exacto
+   - Si es Supabase: verificar credenciales en .env.local
+   - Si es cuenta: crear test account en Supabase admin
+
+2. (2-3h) Implementar Results page
+   - Fetch diagnostic_results de Supabase
+   - Parse StudentKnowledgeProfile
+   - Pull remediation strategies del curriculum JSON
+   - UI con concept mastery bars + misconception cards
+   - "Start Tutoring" button
+
+3. (1-2h) Diseñar tutor AI prompt
+   - System prompt template con StudentKnowledgeProfile + curriculum context
+   - Respuestas Socratic method
+   - Guardar en tutor_sessions
+
+4. (3-4h) Implementar tutor session page
+   - Chat UI (/app/tutor/page.tsx)
+   - Load profile + curriculum
+   - Call Claude con tutor prompt
+   - Save messages a DB
+   - Session end option
+
+5. (1-2h) Landing page redesign (v0.app o manual shadcn/ui)
+
+6. (1h) End-to-end testing con Cristian's brother
+
+7. Final commit + documentación
+
+TOKENS & PRESUPUESTO:
+- Budget: $500/mes
+- Current: Minimal
+- Strategy: 60% Haiku, 30% Sonnet, 10% Opus/Ollama
+
+GITHUB:
+- Feature branches (nunca direct to main)
+- Manual preview review antes de production
+- Auto-deploy Vercel en main
+
+---
+
+ARCHIVO COMPLETO PARA REFERENCIA:
+/home/cris/.openclaw/workspace/EducAI/HANDOFF_TO_CLAUDE.md
+
+Este archivo tiene TODO detallado (estructura, código, credenciales, decisiones, etc).
+
+---
+
+Copiale el contenido de HANDOFF_TO_CLAUDE.md a Claude y preguntale:
+
+"Hola Claude, aquí te paso todo el estado de EducAI. Ayúdame con:
+1. Debug del login (por qué falla)
+2. Implementar results page (visual breakdown de misconceptions + remediation)
+3. Diseñar tutor AI prompt (system prompt + ejemplo)
+4. Plan para próximos pasos
+
+Prioridad: arreglar login primero, luego results page."
+
+---
+
+Listo. Esto debería darle todo lo que necesita Claude para ayudarte.
