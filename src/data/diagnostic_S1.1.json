@@ -1,0 +1,74 @@
+{
+  "diagnostic_version": "1.0.0",
+  "subtopic_id": "S1.1",
+  "subtopic_name": "Introduction to the Particulate Nature of Matter",
+  "total_questions": 5,
+  "estimated_duration_minutes": 10,
+  "questions": [
+    {
+      "id": "S1.1-Q1",
+      "concept_id": "S1.1.1",
+      "question_text": "Which of the following is a compound?",
+      "question_type": "multiple_choice",
+      "options": [
+        {"letter": "A", "text": "O₂ (oxygen gas)", "is_correct": false, "misconception_id": "S1.1.1-M2", "feedback": "O₂ is an element, not a compound. It's made of one type of atom (oxygen), even though each molecule has 2 atoms."},
+        {"letter": "B", "text": "NaCl (table salt)", "is_correct": true, "misconception_id": null, "feedback": "Correct! NaCl contains two different elements (sodium and chlorine) chemically bonded in a fixed ratio."},
+        {"letter": "C", "text": "Fe (iron metal)", "is_correct": false, "misconception_id": null, "feedback": "Fe is an element, not a compound. It contains only one type of atom."},
+        {"letter": "D", "text": "Air", "is_correct": false, "misconception_id": null, "feedback": "Air is a mixture of gases (N₂, O₂, Ar, CO₂). The components are not chemically bonded."}
+      ],
+      "knowledge_signals": {"correct": {"concept_mastery": 85, "confidence": "high"}, "incorrect_to_A": {"concept_mastery": 30, "confidence": "low", "misconception_active": true}, "incorrect_to_C": {"concept_mastery": 60, "confidence": "medium"}, "incorrect_to_D": {"concept_mastery": 50, "confidence": "medium"}}
+    },
+    {
+      "id": "S1.1-Q2",
+      "concept_id": "S1.1.1",
+      "question_text": "A student heats a white solid and it completely decomposes into two different colored gases. The white solid was most likely:",
+      "question_type": "multiple_choice",
+      "options": [
+        {"letter": "A", "text": "An element", "is_correct": false, "misconception_id": null, "feedback": "Elements cannot decompose into different substances. Decomposition requires breaking chemical bonds."},
+        {"letter": "B", "text": "A mixture", "is_correct": false, "misconception_id": "S1.1.1-M1", "feedback": "Mixtures separate by physical methods (heating, filtering, distillation) into their original components — they don't decompose into NEW substances."},
+        {"letter": "C", "text": "A compound", "is_correct": true, "misconception_id": null, "feedback": "Correct! Decomposition (a chemical process producing NEW substances) indicates a compound breaking into elements or simpler compounds."},
+        {"letter": "D", "text": "An alloy", "is_correct": false, "misconception_id": null, "feedback": "An alloy is a mixture of metals. Heating wouldn't cause the dramatic decomposition described."}
+      ],
+      "knowledge_signals": {"correct": {"concept_mastery": 90, "confidence": "high"}, "incorrect_to_A": {"concept_mastery": 40, "confidence": "low"}, "incorrect_to_B": {"concept_mastery": 25, "confidence": "low", "misconception_active": true}, "incorrect_to_D": {"concept_mastery": 50, "confidence": "medium"}}
+    },
+    {
+      "id": "S1.1-Q3",
+      "concept_id": "S1.1.2",
+      "question_text": "During the melting of ice at 0°C, what happens to the kinetic energy and potential energy of the water molecules?",
+      "question_type": "multiple_choice",
+      "options": [
+        {"letter": "A", "text": "Both kinetic and potential energy increase", "is_correct": false, "misconception_id": "S1.1.2-M3", "feedback": "At constant temperature (0°C), kinetic energy stays constant. Only potential energy increases as intermolecular forces are overcome."},
+        {"letter": "B", "text": "Kinetic energy stays constant, potential energy increases", "is_correct": true, "misconception_id": null, "feedback": "Correct! During phase change at constant temperature, energy input breaks intermolecular forces (potential energy) without increasing particle speed (kinetic energy)."},
+        {"letter": "C", "text": "Kinetic energy increases, potential energy stays constant", "is_correct": false, "misconception_id": "S1.1.2-M3", "feedback": "If kinetic energy increased, temperature would increase. But we're AT 0°C — the temperature doesn't change during melting."},
+        {"letter": "D", "text": "Both kinetic and potential energy stay constant", "is_correct": false, "misconception_id": null, "feedback": "If neither changed, why would the ice melt? Energy must be going somewhere — it's breaking intermolecular bonds."}
+      ],
+      "knowledge_signals": {"correct": {"concept_mastery": 95, "confidence": "high"}, "incorrect_to_A": {"concept_mastery": 35, "confidence": "low", "misconception_active": true}, "incorrect_to_C": {"concept_mastery": 40, "confidence": "low", "misconception_active": true}, "incorrect_to_D": {"concept_mastery": 45, "confidence": "low"}}
+    },
+    {
+      "id": "S1.1-Q4",
+      "concept_id": "S1.1.2",
+      "question_text": "When you first start heating water at room temperature, you see small bubbles forming at the bottom of the container. What are these bubbles?",
+      "question_type": "multiple_choice",
+      "options": [
+        {"letter": "A", "text": "Water vapor (gaseous H₂O) being produced by boiling", "is_correct": false, "misconception_id": null, "feedback": "The water isn't hot enough to boil yet. These bubbles form at room temperature."},
+        {"letter": "B", "text": "Air that was dissolved in the water, escaping as it warms", "is_correct": true, "misconception_id": null, "feedback": "Correct! Water naturally dissolves gases from air. As temperature increases, dissolved gases escape. Later, at 100°C, vigorous bubbles of water vapor form."},
+        {"letter": "C", "text": "Oxygen being released by photosynthesis", "is_correct": false, "misconception_id": null, "feedback": "Photosynthesis doesn't occur in plain water without organisms. These are dissolved gases escaping."},
+        {"letter": "D", "text": "Water vapor being produced (it's already boiling)", "is_correct": false, "misconception_id": "S1.1.2-M2", "feedback": "Water only boils at 100°C. Early small bubbles at room temperature are dissolved air, not water vapor. Learn to distinguish the two."}
+      ],
+      "knowledge_signals": {"correct": {"concept_mastery": 80, "confidence": "high"}, "incorrect_to_A": {"concept_mastery": 55, "confidence": "medium"}, "incorrect_to_C": {"concept_mastery": 40, "confidence": "low"}, "incorrect_to_D": {"concept_mastery": 25, "confidence": "low", "misconception_active": true}}
+    },
+    {
+      "id": "S1.1-Q5",
+      "concept_id": "S1.1.3",
+      "question_text": "The average kinetic energy of gas particles at 300 K is E. What is the average kinetic energy at 600 K?",
+      "question_type": "multiple_choice",
+      "options": [
+        {"letter": "A", "text": "E (no change)", "is_correct": false, "misconception_id": null, "feedback": "If kinetic energy didn't change, why would we say the temperature doubled? Temperature and average kinetic energy are directly proportional."},
+        {"letter": "B", "text": "2E", "is_correct": true, "misconception_id": null, "feedback": "Correct! Average kinetic energy is directly proportional to Kelvin temperature. Doubling K (300 → 600) doubles the average KE."},
+        {"letter": "C", "text": "1.07E (doubling from 300°C to 600°C)", "is_correct": false, "misconception_id": "S1.1.3-M1", "feedback": "This shows the error of using Celsius! 300°C ≈ 573 K and 600°C ≈ 873 K, which is only 1.52x, not 2x. ALWAYS use Kelvin for proportionality."},
+        {"letter": "D", "text": "4E", "is_correct": false, "misconception_id": null, "feedback": "That would be correct if we SQUARED the temperature ratio. But KE ∝ T (linear), not T²."}
+      ],
+      "knowledge_signals": {"correct": {"concept_mastery": 100, "confidence": "high"}, "incorrect_to_A": {"concept_mastery": 30, "confidence": "low"}, "incorrect_to_C": {"concept_mastery": 20, "confidence": "low", "misconception_active": true}, "incorrect_to_D": {"concept_mastery": 45, "confidence": "low"}}
+    }
+  ]
+}
